@@ -58,7 +58,7 @@ void PixelMap::initMap()
             }
             else if (i == end.x && j == end.y)
             {
-                rectangles.at(i * mapSize + j)->setFillColor(sf::Color::Blue);
+                rectangles.at(i * mapSize + j)->setFillColor(sf::Color::Red);
                 occupants.push_back(4);
             }
             else
@@ -66,9 +66,36 @@ void PixelMap::initMap()
                 rectangles.at(i * mapSize + j)->setFillColor(sf::Color::White);
                 occupants.push_back(1);
             }
+            //std::cout << "Pos " << i << " " << j << " = " << i * stepSize + margin << std::endl;
             rectangles.at(i * mapSize + j)->setPosition(sf::Vector2f(i * stepSize + margin, j * stepSize + margin));
             rectangles.at(i * mapSize + j)->setOutlineThickness(1.0f);
             rectangles.at(i * mapSize + j)->setOutlineColor(sf::Color::Black);
+        }
+    }
+}
+
+
+void PixelMap::putWall(int x, int y)
+{
+    if (x + 1 > mapSize || y + 1 > mapSize || x < 0 || y < 0)
+        return;
+    occupants.at(x * mapSize + y) = 0;
+    rectangles.at(x * mapSize + y)->setFillColor(sf::Color::Black);
+}
+
+
+void PixelMap::clear()
+{
+    for (int i = 0; i < mapSize; i++)
+    {
+        for (int j = 0; j < mapSize; j++)
+        {
+            if (occupants.at(i * mapSize + j) == 0)
+            {
+                rectangles.at(i * mapSize + j)->setFillColor(sf::Color::White);
+                occupants.at(i * mapSize + j) == 1;
+
+            }
         }
     }
 }

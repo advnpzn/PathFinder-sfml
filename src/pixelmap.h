@@ -9,9 +9,9 @@ class PixelMap
 public:
     PixelMap(int stepSize, int mapSize, int margin);
     ~PixelMap();
-
+    void putWall(int x, int y);
     void draw(sf::RenderWindow &window);
-    
+    void clear();
 private:
     int stepSize, mapSize, margin;
     sf::Vector2i start;
