@@ -1,5 +1,5 @@
 # PathFinder-sfml
- Implementation of a pathfinder using SFML
+ Implementation of a pathfinder using SFML (Dijkstra's Algorithm)
 
 ### Current Progress
 
