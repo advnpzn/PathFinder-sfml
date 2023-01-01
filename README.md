@@ -7,3 +7,7 @@
 * Drawing walls
 * Removing walls
 * Clearing everything
+
+### Sample Image
+
+![uwu](https://github.com/adenosinetp10/PathFinder-sfml/blob/main/res/sample.png)
