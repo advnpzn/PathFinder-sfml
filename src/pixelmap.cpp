@@ -84,7 +84,7 @@ void PixelMap::putWall(int x, int y)
 }
 
 
-void PixelMap::clear()
+void PixelMap::clearAll()
 {
     for (int i = 0; i < mapSize; i++)
     {
@@ -98,4 +98,12 @@ void PixelMap::clear()
             }
         }
     }
+}
+
+void PixelMap::removeWall(int x, int y)
+{
+    if (x + 1 > mapSize || y + 1 > mapSize || x < 0 || y < 0)
+        return;
+    occupants.at(x * mapSize + y) = 1;
+    rectangles.at(x * mapSize + y)->setFillColor(sf::Color::White);
 }

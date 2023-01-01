@@ -9,7 +9,7 @@ int main()
     sf::String title = "Mitochondria";
     sf::RenderWindow window(sf::VideoMode(800, 800), title, sf::Style::Close);
     
-    int mapSize = 70;
+    int mapSize = 40;
     int margin = 50;
     int stepSize = (800 - margin * 2) / mapSize;
     PixelMap map(stepSize, mapSize, margin);
@@ -26,7 +26,7 @@ int main()
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
             {
-                map.clear();
+                map.clearAll();
             }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -42,6 +42,21 @@ int main()
                     std::cout << "PixelPos (x,y) = "<< x<< " " << y<<std::endl; 
                     
                     map.putWall(x, y);
+                }
+            }
+            else if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
+            {
+                sf::Vector2i pixelPos = {sf::Mouse::getPosition(window).x - margin, sf::Mouse::getPosition(window).y - margin};
+                
+                //std::cout << "MousePos (x,y) = "<< pixelPos.x << " " << pixelPos.y<<std::endl; 
+
+                if (!(pixelPos.x < 0 || pixelPos.y < 0 || pixelPos.x > 800 - margin || pixelPos.y > 800 - margin))
+                {
+                    int x = pixelPos.x / stepSize;
+                    int y = pixelPos.y / stepSize;
+                    std::cout << "PixelPos (x,y) = "<< x<< " " << y<<std::endl; 
+                    
+                    map.removeWall(x, y);
                 }
             }
         }
