@@ -13,6 +13,9 @@ public:
     void draw(sf::RenderWindow &window);
     void clearAll();
     void removeWall(int x, int y);
+    void setStart(int x, int y);
+    void setEnd(int x, int y);
+
 private:
     int stepSize, mapSize, margin;
     sf::Vector2i start;

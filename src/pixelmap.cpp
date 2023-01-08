@@ -107,3 +107,21 @@ void PixelMap::removeWall(int x, int y)
     occupants.at(x * mapSize + y) = 1;
     rectangles.at(x * mapSize + y)->setFillColor(sf::Color::White);
 }
+
+
+void PixelMap::setStart(int x, int y)
+{
+    if (x + 1 > mapSize || y + 1 > mapSize || x < 0 || y < 0)
+        return;
+    start = sf::Vector2i(x, y);
+    initMap();
+}
+
+
+void PixelMap::setEnd(int x, int y)
+{
+    if (x + 1 > mapSize || y + 1 > mapSize || x < 0 || y < 0)
+        return;
+    end = sf::Vector2i(x, y);
+    initMap();
+}

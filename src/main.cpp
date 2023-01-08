@@ -29,6 +29,32 @@ int main()
                 map.clearAll();
             }
 
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            {
+                sf::Vector2i pixelPos = {sf::Mouse::getPosition(window).x - margin, sf::Mouse::getPosition(window).y - margin};
+
+                if (!(pixelPos.x < 0 || pixelPos.y < 0 || pixelPos.x > 800 || pixelPos.y > 800))
+                {
+                    int x = pixelPos.x / stepSize;
+                    int y = pixelPos.y / stepSize;
+
+                    map.setStart(x, y);
+                }
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+            {
+                sf::Vector2i pixelPos = {sf::Mouse::getPosition(window).x - margin, sf::Mouse::getPosition(window).y - margin};
+
+                if (!(pixelPos.x < 0 || pixelPos.y < 0 || pixelPos.x > 800 || pixelPos.y > 800))
+                {
+                    int x = pixelPos.x / stepSize;
+                    int y = pixelPos.y / stepSize;
+
+                    map.setEnd(x, y);
+                }
+            }
+
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 sf::Vector2i pixelPos = {sf::Mouse::getPosition(window).x - margin, sf::Mouse::getPosition(window).y - margin};
