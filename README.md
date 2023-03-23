@@ -7,11 +7,11 @@
 * Drawing walls
 * Removing walls
 * Clearing everything
+* Custom Start and End Positions
 
 ### To Do
 
 * Implement the actual algorithm
-* Custom Start and End Positions
 
 ### Sample Image
 
